@@ -120,7 +120,20 @@ class SinglyLinkList {
 
     // Sık soruluyor
     reverse(){
-        
+        var node = this.head;
+        this.head = this.tail;
+        this.tail = node;
+        var prev = null;
+        var next;
+
+        for (let i = 0; i < this.length; i++) {
+            next = node.next;
+            node.next = prev;
+            prev = node;
+            node = next;
+        }
+
+        return this;
     }
 }
 
