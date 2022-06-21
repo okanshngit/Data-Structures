@@ -6,7 +6,8 @@ class Node {
     }
 }
 
-//Methods: push, pop, shift(removes from beggining), unshift(add end)
+//Methods: push, pop, shift(removes from beggining), unshift(add end),
+// get, 
 class DoublyLinkedList {
     constructor() {
         this.head = null;
@@ -72,5 +73,29 @@ class DoublyLinkedList {
         }
         this.lng++;
         return this;
+    }
+
+    get(index){
+        if(index < 0 || index >= this.lng) return null;
+        
+        //Left part
+        if(index <= this.lng/2){
+            let count = 0;
+            let current = this.head;
+            while(count != index){
+                current = current.next;
+                count++;
+            }
+
+        // Right part
+        } else{
+            let count = this.lng -1;
+            let current = this.tail;
+            while(count != index){
+                current = current.prev;
+                count--;
+            }
+        }
+     return current;
     }
 }
