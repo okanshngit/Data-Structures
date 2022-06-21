@@ -6,7 +6,7 @@ class Node {
     }
 }
 
-//Methods: push, 
+//Methods: push, pop
 class DoublyLinkedList {
     constructor() {
         this.head = null;
@@ -27,5 +27,21 @@ class DoublyLinkedList {
         }
         this.lng++;
         return this;
+    }
+
+    pop() {
+        if(!this.head) return undefined;
+        let poppedNode = this.tail;
+        if(this.lng ===1){
+            this.head = null;
+            this.tail = null;
+        } else {
+            this.tail = poppedNode.prev;
+            this.tail.next = null;
+            poppedNode.prev = null;
+            
+        }
+        this.lng--
+        return poppedNode;       
     }
 }
