@@ -7,7 +7,7 @@ class Node {
 }
 
 //Methods: push, pop, shift(removes from beggining), unshift(add end),
-// get, set
+// get, set, inser
 class DoublyLinkedList {
     constructor() {
         this.head = null;
@@ -106,5 +106,23 @@ class DoublyLinkedList {
             return true;
         }
         return false;
+    }
+
+    insert(index, val){
+        if(index < 0 || index > this.lng) return false;
+        if(index === 0 ) return !!this.unshift(val);
+        if(inde === this.lng) return !!this.push(val);
+
+        let beforeNode =  this.get(index - 1);
+        let newNode = new Node(val);
+        let afterNode = beforeNode.next;
+
+        beforeNode.next = newNode;
+        newNode.prev = beforeNode;
+        newNode.next = afterNode;
+        afterNode.prev = newNode;
+        
+        this.lng++;
+        return true;
     }
 }
