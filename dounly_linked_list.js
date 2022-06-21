@@ -7,7 +7,7 @@ class Node {
 }
 
 //Methods: push, pop, shift(removes from beggining), unshift(add end),
-// get, set, inser
+// get, set, insert, remove
 class DoublyLinkedList {
     constructor() {
         this.head = null;
@@ -124,5 +124,20 @@ class DoublyLinkedList {
         
         this.lng++;
         return true;
+    }
+
+    remove(index){
+
+        if(index < 0 || index >= this.lng) return null;
+        if(index === 0 ) return this.shift();
+        if(inde === this.lng - 1) return this.pop();
+
+        let deletedNode = this.get(index)
+        deletedNode.prev.next = deletedNode.next
+        deletedNode.next.prev = deletedNode.prev;
+        deletedNode.next = null
+        deletedNode.prev = null
+        this.lng--
+        return deletedNode;
     }
 }
