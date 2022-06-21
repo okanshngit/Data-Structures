@@ -7,7 +7,7 @@ class Node {
 }
 
 //Methods: push, pop, shift(removes from beggining), unshift(add end),
-// get, 
+// get, set
 class DoublyLinkedList {
     constructor() {
         this.head = null;
@@ -97,5 +97,14 @@ class DoublyLinkedList {
             }
         }
      return current;
+    }
+
+    set(index, val){
+        let foundNode = this.get(index);
+        if(foundNode != null){
+            foundNode.val = val;
+            return true;
+        }
+        return false;
     }
 }
