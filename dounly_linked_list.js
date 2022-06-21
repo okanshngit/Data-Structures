@@ -6,7 +6,7 @@ class Node {
     }
 }
 
-//Methods: push, pop, shift(removes from beggining)
+//Methods: push, pop, shift(removes from beggining), unshift(add end)
 class DoublyLinkedList {
     constructor() {
         this.head = null;
@@ -58,5 +58,19 @@ class DoublyLinkedList {
         }
             this.lng--
             return oldHead;
+    }
+
+    unshift(val){
+        let newNode = new Node(val);
+        if(this.lng === 0){
+            this.head = newNode;
+            this.tail = newNode;
+        } else {
+            this.head.prev = newNode;
+            newNode.next = this.head;
+            this.head = newNode;
+        }
+        this.lng++;
+        return this;
     }
 }
