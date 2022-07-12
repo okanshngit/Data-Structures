@@ -165,4 +165,26 @@ class DoublyLinkedList {
         this.lng--
         return deletedNode;
     }
+
+    // İstenen değeri silme.
+    delNode(val){
+        if(!this.head) return null;
+        if(val === this.tail.val) return this.delEnd()
+        if(val === this.head.val) return this.delFront()
+
+        let current = this.head;
+        
+
+        while(current.val !== val){
+            current = current.next;
+        }
+
+        current.prev.next = current.next;
+        current.next.prev = current.prev;
+				current.next = null;
+        current.prev = null;
+
+        this.length--;
+				return current;
+    }
 }
