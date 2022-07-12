@@ -126,6 +126,31 @@ class DoublyLinkedList {
         return true;
     }
 
+    // Verilen değer sonrasına eleman ekleme.
+    insertAfter(givenVal, val){
+        const newNode = new Node(val)
+        
+        if(!this.head){
+            this.head = newNode
+            this.tail = newNode;
+        } else {
+            let current = this.head;
+
+            while(current.val !== givenVal){
+                current = current.next;
+            }
+            const afterNode = current.next;
+            newNode.next = afterNode;
+            afterNode.prev = newNode;
+
+            newNode.prev = current;
+            current.next = newNode;
+            
+        }
+
+        this.length++;
+    }
+
     remove(index){
 
         if(index < 0 || index >= this.lng) return null;
