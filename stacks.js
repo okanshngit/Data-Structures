@@ -56,3 +56,15 @@ function push(val) {
     }
     
 }
+
+function pop(){
+    if(t < 0){
+        console.log("stack underflow");
+        return false;
+    } else {
+        var x = a[t]
+        a[t] = 0;
+        t -= 1
+        return x;
+    }
+}
