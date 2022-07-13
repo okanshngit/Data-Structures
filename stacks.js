@@ -37,3 +37,22 @@ class Stack {
         return temp.val;
     }
 }
+
+// Without oop 
+
+var t = -1;
+var max = 10;
+var a = Array(max).fill(0);
+
+function push(val) {
+    if(t >= (max-1)){
+        console.log("stack overflow");
+        return false;
+    } else {
+        t += 1;
+        a[t] = val;
+        console.log(`${val} pushed into stack`)
+        return true;
+    }
+    
+}
