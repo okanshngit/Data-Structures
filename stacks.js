@@ -69,7 +69,8 @@ function pop(){
     }
 }
 
-function peek(){
+function peek(){ 
+    //Tepedeki elemanı gösterir
     if(t < 0){
         return "stack underflow"
     } else {
