@@ -68,3 +68,12 @@ function pop(){
         return x;
     }
 }
+
+function peek(){
+    if(t < 0){
+        return "stack underflow"
+    } else {
+        var x = a[t];
+        return x;
+    }
+}
